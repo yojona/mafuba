@@ -1,0 +1,29 @@
+{
+  "name": "mafuba",
+  "version": "1.0.0",
+  "description": "Simple state container for React apps",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yojona/mafuba.git"
+  },
+  "keywords": [
+    "mafuba",
+    "state",
+    "react",
+    "reactive",
+    "flux",
+    "redux",
+    "javascript",
+    "react native"
+  ],
+  "author": "Jonathan Ayala",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yojona/mafuba/issues"
+  },
+  "homepage": "https://github.com/yojona/mafuba#readme"
+}
