@@ -28,4 +28,8 @@ export default class Mafuba {
   link (component) {
     this.refs.push(component)
   }
+
+  dispatch (action) {
+    action.bind(this).call()
+  }
 }

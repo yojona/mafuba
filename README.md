@@ -72,3 +72,83 @@ export default class Box extends Component {
     )
   }
 ```
+
+### Methods
+You can set methods to manipulate the State.
+```javascript
+import Mafuba from 'mafuba'
+
+export default new Mafuba({
+  data: {
+    counter: 0
+  },
+  methods: {
+    addOne () {
+      this.setState({counter: this.data.counter + 1})
+    }
+
+  }
+})
+
+```
+#### Another example
+Methods.js
+``` javascript
+export function addOne () {
+  this.setState({counter: this.data.counter + 1})
+}
+
+export function substractOne () {
+  this.setState({counter: this.data.counter - 1})
+}
+```
+Store.js
+``` javascript
+import Mafuba from 'mafuba'
+import * as Methods from './Methods'
+
+export default new Mafuba({
+  data: {
+    counter: 0
+  },
+  methods: {
+    addOne: Methods.addOne,
+    substractOne: Methods.substractOne,
+  }
+})
+```
+
+### Dispatcher
+You can use the dispatch() function to dispatch actions instead of setting methods.
+
+Store.js
+```javascript
+import Mafuba from 'mafuba'
+
+export default new Mafuba({
+  counter: 0
+})
+```
+App.js
+```javascript
+import Store from './Mafuba/Store'
+import * as Actions from './Mafuba/Methods'
+
+class App extends Component {
+  componentDidMount () {
+    Store.link(this)
+  }
+  render () {
+    return (
+      <div className='App'>
+        <p>{Store.data.counter}</p>
+
+        <button onClick={() => { Store.dispatch(Actions.addOne) }}> Add one </button>
+        <button onClick={() => { Store.dispatch(Actions.substractOne) }}> Substract one </button>
+
+      </div>
+    )
+  }
+}
+```
+Note that if you prefer to use the dispatch function instead of establishing methods, you must import the actions when you need them.
