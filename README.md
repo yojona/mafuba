@@ -3,7 +3,7 @@
 Simple state container for react apps.
 </p>
 
-### Install Mafuba
+### Installation
 ```
 npm i mafuba
 ```
@@ -19,8 +19,7 @@ export default new Mafuba({
 })
 ```
 
-### Link the Store to your App
-Now all components in your app will respond to state changes.
+### Link Store to App
 ``` javascript
 import React, { Component } from 'react'
 import Store from './Store'
@@ -34,6 +33,8 @@ export default class App extends Component {
   }
 }
 ```
+Now all components in your app will respond to state changes.
+
 ``` javascript
 import React, { Component } from 'react'
 import Store from '../Store'
@@ -118,7 +119,7 @@ export default new Mafuba({
 })
 ```
 
-### Dispatcher
+### Dispatch
 You can use the dispatch() function to dispatch actions instead of setting methods.
 
 Store.js

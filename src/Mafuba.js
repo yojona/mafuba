@@ -1,3 +1,5 @@
+import Seal from './Seal'
+
 export default class Mafuba {
   constructor (object) {
     this.data = {}
@@ -11,6 +13,8 @@ export default class Mafuba {
         this.constructor.prototype[method] = object.methods[method]
       }
     }
+
+    Seal(this.data)
   }
 
   getData () {
