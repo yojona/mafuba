@@ -1,6 +1,6 @@
 {
   "name": "mafuba",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Simple state container for React apps",
   "main": "index.js",
   "scripts": {

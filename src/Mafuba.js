@@ -27,6 +27,8 @@ export default class Mafuba {
     this.refs.forEach(component => {
       component.setState(data)
     })
+
+    Seal(this.data)
   }
 
   link (component) {
