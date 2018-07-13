@@ -19,7 +19,7 @@ export default new Mafuba({
 })
 ```
 
-### Link Store to App
+### Link the Store to your App
 ``` javascript
 import React, { Component } from 'react'
 import Store from './Store'
