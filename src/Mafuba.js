@@ -25,7 +25,7 @@ export default class Mafuba {
     this.data = Object.assign({}, this.data, data)
 
     this.refs.forEach(component => {
-      component.setState(data)
+      component.forceUpdate()
     })
 
     Seal(this.data)
