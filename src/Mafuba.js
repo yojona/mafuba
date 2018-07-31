@@ -27,7 +27,7 @@ export default class Mafuba {
     }
 
     if (!!object.methods) {
-      if (typeof object.data === 'object' && !Array.isArray(object.data)) {
+      if (typeof object.methods === 'object' && !Array.isArray(object.methods)) {
         for (const method in object.methods) {
           this.constructor.prototype[method] = object.methods[method]
         }
@@ -35,7 +35,7 @@ export default class Mafuba {
         this.error(
           '"methods" node in state expects' +
           'an object as argument. \n\nnew ' +
-          'Mafuba({\n\tdata: node Object\n})'
+          'Mafuba({\n\tmethods: node Object\n})'
         )
       }
     }
