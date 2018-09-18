@@ -1,18 +1,18 @@
-import Seal from './Seal'
-
 export default class Mafuba {
   constructor (object) {
-
-    if (!object || typeof object !== 'object') this.error(
-      'Mafuba constructor expects ' +
-      'an object. \n\nnew Mafuba (argm ' +
+    if (Array.isArray(object)) this.error('Mafuba constructor expects an object.')
+    if (!object || typeof object !== 'object') {
+      this.error(
+        'Mafuba constructor expects ' +
+      'an object. \n\nnew Mafuba (arg ' +
       'Object) \n\nCurrently ' + typeof object
-    )
+      )
+    }
 
     this.data = {}
     this.refs = []
 
-    if (!!object.data) {
+    if (object.data) {
       if (typeof object.data === 'object' && !Array.isArray(object.data)) {
         this.data = object.data
       } else {
@@ -26,21 +26,19 @@ export default class Mafuba {
       this.data = object
     }
 
-    if (!!object.methods) {
-      if (typeof object.methods === 'object' && !Array.isArray(object.methods)) {
-        for (const method in object.methods) {
-          this.constructor.prototype[method] = object.methods[method]
+    if (object.mutations) {
+      if (typeof object.mutations === 'object' && !Array.isArray(object.mutations)) {
+        for (const mutation in object.mutations) {
+          this.constructor.prototype[mutation] = object.mutations[mutation]
         }
       } else {
         this.error(
-          '"methods" node in state expects' +
+          '"mutations" node in state expects ' +
           'an object as argument. \n\nnew ' +
-          'Mafuba({\n\tmethods: node Object\n})'
+          'Mafuba({\nmutations: node Object\n})'
         )
       }
     }
-
-    Seal(this.data)
   }
 
   error (err) {
@@ -59,8 +57,6 @@ export default class Mafuba {
     this.refs.forEach(component => {
       component.forceUpdate()
     })
-
-    Seal(this.data)
   }
 
   link (component) {
