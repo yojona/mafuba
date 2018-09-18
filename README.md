@@ -1,6 +1,6 @@
-<p align="center"> 
+<p align="center">
 <img src="https://i.imgur.com/FdNnX0r.png"><br />
-Simple state container for react apps.
+Simple state container for React and React Native apps.
 </p>
 
 ### Installation
@@ -120,7 +120,7 @@ export default new Mafuba({
 ```
 
 ### Dispatch
-You can use the dispatch() function to dispatch actions instead of setting methods.
+You can use the `dispatch()` function to dispatch actions instead of setting methods.
 
 Store.js
 ```javascript
@@ -152,4 +152,4 @@ class App extends Component {
   }
 }
 ```
-Note that if you prefer to use the dispatch function instead of establishing methods, you must import the actions when you need them.
+> **Note.** that if you prefer to use the dispatch function instead of establishing methods, you must import the actions when you need them.
