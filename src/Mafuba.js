@@ -4,8 +4,8 @@ export default class Mafuba {
     if (!object || typeof object !== 'object') {
       this.error(
         'Mafuba constructor expects ' +
-      'an object. \n\nnew Mafuba (arg ' +
-      'Object) \n\nCurrently ' + typeof object
+        'an object. \n\nnew Mafuba (arg ' +
+        'Object) \n\nCurrently ' + typeof object
       )
     }
 
@@ -55,7 +55,9 @@ export default class Mafuba {
     this.data = Object.assign({}, this.data, data)
 
     this.refs.forEach(component => {
-      component.forceUpdate()
+      if (component.updater && component.updater.isMounted(component)) {
+        component.forceUpdate() 
+      }
     })
   }
 
